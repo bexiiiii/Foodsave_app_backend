@@ -1,10 +1,6 @@
 package foodsave.com.foodsave.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Product {
@@ -18,7 +14,7 @@ public class Product {
     private String description;
     private String imageUrl;  // Путь к изображению
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Discount discount; // Связь с сущностью Discount
 
     public String getImageUrl() {

@@ -22,8 +22,12 @@ public class ProductService {
 
     // Сохранение нового продукта
     public Product saveProduct(Product product) {
-        return productRepository.save(product);
+        if (product.getDiscount() != null) {
+            discountRepository.saveAndFlush(product.getDiscount()); // Принудительно сохраняем и обновляем Discount
+        }
+        return productRepository.save(product); // Сохраняем Product
     }
+
 
     // Получение продукта по названию
     public Product findByName(String name) {
