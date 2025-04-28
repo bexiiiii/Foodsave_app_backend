@@ -14,7 +14,12 @@ public class Product {
     private String description;
     private String imageUrl;  // Путь к изображению
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")  // Внешний ключ для связи с магазином
+    private Store store;
+
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "discount_id")
     private Discount discount; // Связь с сущностью Discount
 
     public String getImageUrl() {

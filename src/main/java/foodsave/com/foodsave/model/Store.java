@@ -1,10 +1,9 @@
 package foodsave.com.foodsave.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Store {
@@ -17,6 +16,10 @@ public class Store {
     private String category; // Категория продуктов
     private String location; // Местоположение, если необходимо
     private String contactInfo; // Контактная информация
+
+
+    @OneToMany(mappedBy = "store")
+    private List<Product> products;
 
     // Getters and Setters
     public Long getId() {
