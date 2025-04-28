@@ -14,10 +14,11 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://10.201.5.95:9527","http://localhost:5173/","http://localhost:9527/","http://localhost:5174/","http://localhost:5173/") // 👈 твой фронтенд-адрес
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*")
-                        .allowCredentials(true); // 👈 можно только с конкретным origin
+                       .allowedOrigins("http://10.201.5.95:9527", "http://localhost:5173", "http://localhost:9527", "http://localhost:5174")
+                       .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                       .allowedHeaders("*")
+                       .allowCredentials(true);
+
             }
         };
     }
